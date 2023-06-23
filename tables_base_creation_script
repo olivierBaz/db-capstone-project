@@ -1,0 +1,77 @@
+CREATE TABLE RoomTypes(
+	RoomType int PRIMARY KEY AUTO_INCREMENT,
+	Description varchar(100)
+);
+
+CREATE TABLE Rooms(
+	Floor int,
+	RoomNumber int,
+	RoomType int NOT NULL,
+	Price decimal(10, 2),
+	PRIMARY KEY(Floor, RoomNumber)
+);
+CREATE TABLE RoomTypes(
+	RoomType int PRIMARY KEY AUTO_INCREMENT,
+	Description varchar(100)
+);
+
+CREATE TABLE Rooms(
+	Floor int,
+	RoomNumber int,
+	RoomType int NOT NULL,
+	Price decimal(10, 2),
+	PRIMARY KEY(Floor, RoomNumber)
+);
+
+CREATE TABLE Guests(
+	GuestId int PRIMARY KEY AUTO_INCREMENT,
+	FirstName varchar(50) NOT NULL,
+	LastName varchar(50) NOT NULL,
+	Address varchar(100) NOT NULL,
+	PhoneNumber varchar(20)
+);
+
+CREATE TABLE Customers(
+	CustomerId int PRIMARY KEY AUTO_INCREMENT,
+	GuestId int NOT NULL,
+	CreditCardNumber varchar(20),
+	LicenseNumber varchar(20)
+);
+
+CREATE TABLE Reservations(
+	ReservationId int PRIMARY KEY AUTO_INCREMENT,
+	CustomerId int NOT NULL,
+	RoomType int NOT NULL,
+	Floor int NOT NULL,
+	RoomNumber int NOT NULL,
+	ArrivalDate datetime NOT NULL,
+	DepartureDate datetime NOT NULL,
+	CheckInDate datetime,
+	IsConfirmed tinyint
+);
+CREATE TABLE Guests(
+	GuestId int PRIMARY KEY AUTO_INCREMENT,
+	FirstName varchar(50) NOT NULL,
+	LastName varchar(50) NOT NULL,
+	Address varchar(100) NOT NULL,
+	PhoneNumber varchar(20)
+);
+
+CREATE TABLE Customers(
+	CustomerId int PRIMARY KEY AUTO_INCREMENT,
+	GuestId int NOT NULL,
+	CreditCardNumber varchar(20),
+	LicenseNumber varchar(20)
+);
+
+CREATE TABLE Reservations(
+	ReservationId int PRIMARY KEY AUTO_INCREMENT,
+	CustomerId int NOT NULL,
+	RoomType int NOT NULL,
+	Floor int NOT NULL,
+	RoomNumber int NOT NULL,
+	ArrivalDate datetime NOT NULL,
+	DepartureDate datetime NOT NULL,
+	CheckInDate datetime,
+	IsConfirmed tinyint
+);
